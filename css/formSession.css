@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 50em;
+    margin: 0 auto;
+    margin-top: 5em;
+}
+.table {
+    width: 100%;
+    height: 4em;
+}
+form div {
+    margin-bottom: 1em;
+}

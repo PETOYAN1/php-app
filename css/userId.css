@@ -1,0 +1,7 @@
+.container {
+    flex-direction: column;
+    margin-top: 7em;
+}
+.container div {
+    margin-top: 2em;
+}

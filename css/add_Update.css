@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+        background-color: #e53b72;
+}
+form {
+    width: 50vw;
+    min-width: 300px;
+}
