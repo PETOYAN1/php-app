@@ -1,6 +1,6 @@
 <?php 
     session_start();
-
+    session_destroy();
     $Errors = [];
 
     if(isset($_POST['submit'])) {
@@ -39,10 +39,10 @@
 
         // If Not Error locate Home page
 
-        $name = $_POST['first_name'];
-        $lname = $_POST['last_name'];
-        $company = $_POST['company'];
-        $email = $_POST['email'];
+        $name = htmlspecialchars($_POST['first_name']);
+        $lname = htmlspecialchars($_POST['last_name']);
+        $company = htmlspecialchars($_POST['company']);
+        $email = htmlspecialchars($_POST['email']);
         $phone = $_POST['phone_number'];
         $gender = $_POST['gender'];
         $password = md5($_POST['password']);
@@ -53,6 +53,34 @@
         $params = str_replace(PHP_EOL, '', $params);
 
         if(!$Errors) {
+
+            //Session start
+
+            $storage['image'] = $photo;
+
+            foreach($_POST as $key => $value) {
+                $storage[$key] = $value;
+            }
+
+            $_SESSION['Users'] = $storage; 
+
+            // Create new file 
+
+            if(!file_exists('data')) {
+                mkdir('data');
+            }
+            $fp = fopen('data/data.json', 'w');
+            if(!file_exists('data/data.json')) {
+                echo 'File Not Found';
+                exit();
+            } 
+                for($i = 0; $i < count($_SESSION['Users']); $i++) {
+                    fwrite($fp, "ID ${i}\n");
+                    foreach($_SESSION['Users'] as $key => $value) {
+                        fwrite($fp, "${key} => ${value},\n");
+                    
+                    }
+                }
             header("Location: ../index.php . $params");
         } 
     }

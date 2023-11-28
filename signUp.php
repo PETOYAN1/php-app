@@ -45,7 +45,7 @@
         <div class="container">
             <span class="error animated tada" id="msg"></span>
             <form method="post" name="form1" class="box">
-            <h4><a href="Creating/index.php" style="text-decoration: none;">Admin</a><span style="cursor : pointer"><a style="text-decoration: none; color: white;" href="Creating/index.php">Dashboard</a></span></h4>
+            <h4>Admin<span style="cursor : pointer;color: white; ">Dashboard</span></h4>
             <h5>Sign Up to your account.</h5>
                 <input type="text" name="name" placeholder="FirstName" autocomplete="off">
                 <i class="typcn typcn-eye" id="eye"></i>
@@ -61,11 +61,15 @@
                     <input type="radio" class="form-check-input" name="gender" id="female" value="male">
                     <label for="female" class="form-input-label">Female</label>
                 </div>
-                <i class="typcn typcn-eye" id="eye"></i>
                 <input type="submit" value="Sign Up" class="btn1" name="submit">
             </form>
             <a href="index.php" class="dontHave">Sign In if you have Account ?</a>
         </div> 
     </div>
+    <script>
+        let password = document.getElementById('password');
+
+        
+    </script>
 </body>
 </html>

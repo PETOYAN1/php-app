@@ -3,10 +3,10 @@
 
 	session_start();
     
-	if($_SESSION) {
-        header('Location: ../index.php');
-        exit();
-    }
+	// if($_SESSION) {
+    //     header('Location: ../index.php');
+    //     exit();
+    // }
 ?>
 
 <!DOCTYPE html>

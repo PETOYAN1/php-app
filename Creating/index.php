@@ -57,6 +57,7 @@
                                      <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Update</a>
                                      <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
                                 </td>
+                                
                               <?php
                         }
                         ?>

@@ -37,7 +37,7 @@
         <div class="container">
             <span class="error animated tada" id="msg"></span>
             <form method="post" name="form1" class="box">
-            <h4><a href="Creating/index.php" style="text-decoration: none;">Admin</a><span style="cursor : pointer"><a style="text-decoration: none; color: white;" href="Creating/index.php">Dashboard</a></span></h4>
+            <h4>Admin<span style="cursor : pointer; color: white;">Dashboard</span></h4>
             <h5>Sign in to your account.</h5>
                 <input type="text" name="email" placeholder="Email" autocomplete="off">
                 <i class="typcn typcn-eye" id="eye"></i>
