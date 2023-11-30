@@ -15,12 +15,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/media.css">
 </head>
-<body style="margin-left: 1em;">
+<body>
     <h1 class="text-center text-white">Registration Page</h1>
 <div class="main">
     <div class="container">
@@ -88,13 +89,13 @@
                                 </div>
                             </div>
                             <div class="form-input">
-                                <label for="password">Password</label>
+                                <label for="password" class="required">Password</label>
                                 <input type="password" name="password" id="password"/>
                                 <span><?= isset($Errors['Password']) ? $Errors['Password'] : ''  ?></span>
                                 <span><?= isset($Errors['passMatch']) ? $Errors['passMatch'] : ''  ?></span>
                             </div>
                             <div class="form-input">
-                                <label for="passRepeat">Repeat Password</label>
+                                <label for="passRepeat" class="required">Repeat Password</label>
                                 <input type="password" name="passRepeat" id="passRepeat" />
                                 <span><?= isset($Errors['PassRepeat']) ? $Errors['PassRepeat'] : ''  ?></span>
                             </div>
@@ -109,5 +110,18 @@
         </div>
     </div>
 </div>
+    <script>
+        ScrollReveal({
+                reset: true,
+                distance: '60px',
+                duration: 2500,
+                delay: 0,
+                opacity: 0
+            })
+            ScrollReveal().reveal('.submit', { origin : 'left'});
+            ScrollReveal().reveal('.signup-img', { origin : 'left'});
+            ScrollReveal().reveal('.signup-content', {origin : 'left'});
+            ScrollReveal().reveal('.container-login100-form-btn', {origin : 'bottom'});
+    </script>
 </body>
 </html>

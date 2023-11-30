@@ -1,9 +1,14 @@
 <?php 
     session_start();
+    session_unset();
     session_destroy();
     $Errors = [];
+    $id = 0;
+
+    //Generate Id for Users
 
     if(isset($_POST['submit'])) {
+        $id += 1;
         if(!$_POST['first_name']) {
             $Errors['FirstName'] = 'First name is Required';
         }
@@ -37,8 +42,6 @@
             $Errors['File'] = 'File not found';
         }
 
-        // If Not Error locate Home page
-
         $name = htmlspecialchars($_POST['first_name']);
         $lname = htmlspecialchars($_POST['last_name']);
         $company = htmlspecialchars($_POST['company']);
@@ -48,40 +51,40 @@
         $password = md5($_POST['password']);
         $photo = $_FILES['file']['full_path'];
 
-        $params = "?first_name=$name&last_name=$lname&company=$company&email=$email&phone_number=
-        $phone&photo=$photo&gender=$gender&password=$password";
-        $params = str_replace(PHP_EOL, '', $params);
-
         if(!$Errors) {
 
-            //Session start
+            //Put data in storage
 
+            $storage['id'] = $id;
+            $storage['name'] = $name;
+            $storage['lastname'] = $lname;
+            $storage['company'] = $company;
+            $storage['email'] = $email;
+            $storage['phone'] = $phone;
+            $storage['gender'] = $gender;
+            $storage['password'] = $password;
             $storage['image'] = $photo;
-
-            foreach($_POST as $key => $value) {
-                $storage[$key] = $value;
-            }
-
-            $_SESSION['Users'] = $storage; 
 
             // Create new file 
 
             if(!file_exists('data')) {
                 mkdir('data');
             }
-            $fp = fopen('data/data.json', 'w');
+            $fp = fopen('data/data.json', 'a');
+
             if(!file_exists('data/data.json')) {
                 echo 'File Not Found';
                 exit();
             } 
-                for($i = 0; $i < count($_SESSION['Users']); $i++) {
-                    fwrite($fp, "ID ${i}\n");
-                    foreach($_SESSION['Users'] as $key => $value) {
-                        fwrite($fp, "${key} => ${value},\n");
-                    
-                    }
-                }
-            header("Location: ../index.php . $params");
+            if(filesize('data/data.json') == 0) {
+                $first_record[] = $storage;
+                fwrite($fp, json_encode($first_record, JSON_PRETTY_PRINT, LOCK_EX));
+            } 
+            fclose($fp);
+
+            // If Not Error locate Home page
+
+            header("Location: ../index.php");
         } 
     }
 ?>
