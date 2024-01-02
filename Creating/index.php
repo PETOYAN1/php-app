@@ -48,14 +48,14 @@
                         while($row = mysqli_fetch_assoc($result)) {
                             ?>
                                  <tr>
-                                 <td><a href="userId.php?id=<?php echo $row['id'] ?>"><? echo $row['id'] ?></a></td>
-                                 <td><? echo $row['firstname']?></td>
-                                 <td><? echo $row['lastname']?></td>
+                                 <td><a href="userId.php?id=<?php echo $row['ID'] ?>"><? echo $row['ID'] ?></a></td>
+                                 <td><? echo $row['name']?></td>
+                                 <td><? echo $row['surname']?></td>
                                  <td><? echo $row['email']?></td>
                                  <td><? echo $row['gender']?></td>
                                  <td>
-                                     <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Update</a>
-                                     <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
+                                     <a href="edit.php?id=<?php echo $row['ID'] ?>" class="btn btn-primary">Update</a>
+                                     <a href="delete.php?id=<?php echo $row['ID'] ?>" class="btn btn-danger">Delete</a>
                                 </td>
                                 
                               <?php

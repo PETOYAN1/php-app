@@ -8,7 +8,7 @@
         $gender = $_POST['gender']; 
         $password = $_POST['password'];
 
-        $sql = "UPDATE `crud` SET `firstname`='$first_name',`lastname`='$last_name',`email`=
+        $sql = "UPDATE `crud` SET `name`='$first_name',`surname`='$last_name',`email`=
         '$email',`gender`='$gender', `password` = '$password' WHERE id = $id";
 
         $result = mysqli_query($conn, $sql);
@@ -49,13 +49,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">First Name</label>
-                        <input value="<?echo $row['firstname'] ?>" type="text" class="form-control" name="first_name" placeholder="Samvel">
+                        <input value="<?echo $row['name'] ?>" type="text" class="form-control" name="first_name" placeholder="Samvel">
                     </div>
                 </div>
                     <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">Last Name</label>
-                        <input value="<?echo $row['lastname'] ?>" type="text" class="form-control" name="last_name" placeholder="Petoyan">
+                        <input value="<?echo $row['surname'] ?>" type="text" class="form-control" name="last_name" placeholder="Petoyan">
                     </div>
                 </div>
                 <div class="row mb-3">

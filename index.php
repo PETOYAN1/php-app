@@ -1,9 +1,8 @@
 <?php 
     include('db_conn.php');
-
         if(isset($_POST['submit'])) {
             $email = $_POST['email']; 
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
 
             if(empty($email)) {
                 echo "<script>alert('Write Email');</script>";
@@ -42,7 +41,6 @@
                 <input type="text" name="email" placeholder="Email" autocomplete="off">
                 <i class="typcn typcn-eye" id="eye"></i>
                 <input type="password" name="password" placeholder="Passsword" id="pwd" autocomplete="off">
-                <a href="signUp.php" class="forgetpass">Forget Password?</a>
                 <input type="submit" value="Sign in" class="btn1" name="submit">
             </form>
                 <a href="signUp.php" class="dnthave">Don’t have an account? Sign up</a>

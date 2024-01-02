@@ -19,10 +19,10 @@
     ?>  
     <a class="back btn btn-dark m-3" href="index.php">Back</a>
     <div class="container d-flex justify-content-center align-items-center">
-        <h1 class="text-center">Info about User ID <? echo $row['id'] ?></h1>
+        <h1 class="text-center">Info about User ID <? echo $row['ID'] ?></h1>
         <div>
-            <p>Name: <? echo  $row['firstname']?></p>
-            <p>Lastname: <? echo  $row['lastname']?></p>
+            <p>Name: <? echo  $row['name']?></p>
+            <p>Lastname: <? echo  $row['surname']?></p>
             <p>Email: <? echo  $row['email']?></p>
             <p>Gender: <? echo  $row['gender']?></p>
         </div>

@@ -2,17 +2,17 @@
     require('db_conn.php');
     if(isset($_POST['submit'])) {
         $first_name = $_POST['name'];
-        $last_name = $_POST['LastName'];
+        $last_name = $_POST['surname'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
         $gender = $_POST['gender'];
+        $password = md5($_POST['password']);
 
         if (empty($first_name) || empty($last_name) || empty($email) || empty($password)) {
             echo "<script>
                     alert('Something is empty');
                  </script>";
         } else {
-            $sql = "INSERT INTO `crud`(`id`, `firstname`, `lastname`, `email`, `gender`, `password`)
+            $sql = "INSERT INTO `crud`(`id`, `name`, `surname`, `email`, `gender`, `password`)
             VALUES (NULL,'$first_name','$last_name','$email','$gender','$password')";
 
             $result = mysqli_query($conn, $sql);
@@ -47,13 +47,13 @@
             <form method="post" name="form1" class="box">
             <h4>Admin<span style="cursor : pointer;color: white; ">Dashboard</span></h4>
             <h5>Sign Up to your account.</h5>
-                <input type="text" name="name" placeholder="FirstName" autocomplete="off">
+                <input type="text" name="name" placeholder="name" autocomplete="off">
                 <i class="typcn typcn-eye" id="eye"></i>
-                <input type="text" name="LastName" placeholder="LastName" autocomplete="off">
+                <input type="text" name="surname" placeholder="surname" autocomplete="off">
                 <i class="typcn typcn-eye" id="eye"></i>
-                <input type="text" name="email" placeholder="Email" autocomplete="off">
+                <input type="text" name="email" placeholder="email" autocomplete="off">
                 <i class="typcn typcn-eye" id="eye"></i>
-                <input type="password" name="password" placeholder="Password" id="pwd" autocomplete="off">
+                <input type="password" name="password" placeholder="password" id="pwd" autocomplete="off">
                 <div class="form-group mb-3 d-flex gap-2">
                     <label>Gender:</label>
                     <input type="radio" checked class="form-check-input" name="gender" id="male" value="male">

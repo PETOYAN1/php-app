@@ -13,7 +13,7 @@
                     alert('Something is empty');
                  </script>";
         } else {
-            $sql = "INSERT INTO `crud`(`id`, `firstname`, `lastname`, `email`, `gender`, `password`)
+            $sql = "INSERT INTO `crud`(`id`, `name`, `surname`, `email`, `gender`, `password`)
             VALUES (NULL,'$first_name','$last_name','$email','$gender','$password')";
 
             $result = mysqli_query($conn, $sql);
